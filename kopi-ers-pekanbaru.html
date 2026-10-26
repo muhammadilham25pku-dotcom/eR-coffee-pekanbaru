@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kopiers Pekanbaru — Kopi On The Road</title>
+  <meta name="description" content="Kopiers Pekanbaru - Kopi gerobak modern dengan rasa premium harga ramah di kantong. Gula Aren, Americano, Matcha & lebih banyak lagi." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brown-dark: #3d2314;
+      --brown: #5c3a21;
+      --brown-mid: #8b5e3c;
+      --cream: #f8f1e3;
+      --cream-dark: #efe4d0;
+      --gold: #d4a017;
+      --gold-light: #e8c547;
+      --white: #ffffff;
+      --text: #2c1a0e;
+      --shadow: 0 10px 30px rgba(61, 35, 20, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      background: rgba(61, 35, 20, 0.95);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      padding: 0.7rem 5%;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 1px;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--cream);
+      font-weight: 400;
+      font-size: 0.9rem;
+      margin-left: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--cream);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 2px;
+      background: var(--cream);
+      transition: 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(61,35,20,0.85) 0%, rgba(92,58,33,0.75) 100%),
+                  url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--cream);
+      padding: 0 1.5rem;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      animation: fadeUp 1s ease;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(212, 160, 23, 0.2);
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 span {
+      color: var(--gold-light);
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      font-weight: 300;
+      max-width: 560px;
+      margin: 0 auto 2rem;
+      opacity: 0.95;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--brown-dark);
+      box-shadow: 0 6px 20px rgba(212, 160, 23, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(212, 160, 23, 0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--cream);
+      border: 2px solid var(--cream);
+      margin-left: 1rem;
+    }
+
+    .btn-outline:hover {
+      background: var(--cream);
+      color: var(--brown-dark);
+    }
+
+    /* ===== SECTION COMMON ===== */
+    section {
+      padding: 5rem 5%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--brown-dark);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title p {
+      color: var(--brown-mid);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* ===== ABOUT ===== */
+    .about {
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .about-img {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .about-img img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-img::after {
+      content: 'Kopiers';
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: var(--brown-dark);
+      color: var(--gold-light);
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+    }
+
+    .about-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--brown-dark);
+      margin-bottom: 1rem;
+    }
+
+    .about-text p {
+      margin-bottom: 1rem;
+      color: #4a3525;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: var(--cream);
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+    }
+
+    .feature-item .icon {
+      font-size: 1.4rem;
+    }
+
+    .feature-item span {
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    /* ===== MENU ===== */
+    .menu {
+      background: var(--cream-dark);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .menu-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(61, 35, 20, 0.2);
+    }
+
+    .menu-card-header {
+      background: linear-gradient(135deg, var(--brown) 0%, var(--brown-dark) 100%);
+      color: var(--cream);
+      padding: 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .menu-card-header.hot {
+      background: linear-gradient(135deg, #8b4513 0%, #5c2e0a 100%);
+    }
+
+    .menu-card-header.noncoffee {
+      background: linear-gradient(135deg, #2d5a3d 0%, #1a3a27 100%);
+    }
+
+    .menu-card-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .menu-card-header .price {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--gold-light);
+    }
+
+    .menu-card-body {
+      padding: 1.3rem 1.5rem 1.5rem;
+    }
+
+    .menu-card-body p {
+      font-size: 0.92rem;
+      color: #5a4535;
+      margin-bottom: 0.8rem;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--cream);
+      color: var(--brown);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+    }
+
+    .tag.bestseller {
+      background: #fff3cd;
+      color: #856404;
+    }
+
+    /* ===== LOCATIONS ===== */
+    .locations {
+      background: var(--white);
+    }
+
+    .loc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .loc-card {
+      background: var(--cream);
+      border-radius: 14px;
+      padding: 1.5rem;
+      border-left: 5px solid var(--gold);
+      transition: transform 0.3s;
+    }
+
+    .loc-card:hover {
+      transform: translateX(6px);
+    }
+
+    .loc-card h4 {
+      font-size: 1.1rem;
+      color: var(--brown-dark);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .loc-card p {
+      font-size: 0.9rem;
+      color: #5a4535;
+    }
+
+    /* ===== INFO / HOURS ===== */
+    .info-section {
+      background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown) 100%);
+      color: var(--cream);
+      text-align: center;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .info-item {
+      padding: 1.5rem;
+    }
+
+    .info-item .icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .info-item h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--gold-light);
+    }
+
+    .info-item p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    /* ===== CTA ===== */
+    .cta {
+      background: var(--cream);
+      text-align: center;
+      padding: 4.5rem 5%;
+    }
+
+    .cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: var(--brown-dark);
+      margin-bottom: 1rem;
+    }
+
+    .cta p {
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      color: var(--brown-mid);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--brown-dark);
+      color: var(--cream);
+      text-align: center;
+      padding: 2rem 5%;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--brown-dark);
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-img img {
+        height: 280px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .btn-outline {
+        margin-left: 0;
+        margin-top: 0.8rem;
+        display: inline-block;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <a href="#" class="logo">Kopiers <span>Pekanbaru</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">Tentang</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#lokasi">Lokasi</a></li>
+      <li><a href="#info">Info</a></li>
+    </ul>
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">KOPI ON THE ROAD</div>
+      <h1>Kopi Premium<br><span>Harga Bersahabat</span></h1>
+      <p>Kopiers menghadirkan rasa kopi berkualitas dengan konsep gerobak modern di berbagai titik strategis Pekanbaru. Cepat, enak, dan ramah di kantong.</p>
+      <div>
+        <a href="#menu" class="btn btn-primary">Lihat Menu</a>
+        <a href="#lokasi" class="btn btn-outline">Cari Lokasi</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="section-title">
+      <h2>Tentang Kopiers</h2>
+      <div class="divider"></div>
+      <p>Brand kopi gerobak modern yang sedang naik daun di Pekanbaru</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800" alt="Secangkir kopi Kopiers" />
+      </div>
+      <div class="about-text">
+        <h3>Rasa Premium, Konsep On The Road</h3>
+        <p>Kopiers hadir di Pekanbaru sejak April 2025 dengan konsep <strong>kopi gerobak modern</strong> (on the road). Berasal dari Jambi, brand ini menggunakan biji <strong>Robusta Kerinci</strong> yang berkarakter namun tetap smooth.</p>
+        <p>Dengan tampilan gerobak yang rapi dan branding yang menarik, Kopiers menjadi favorit mahasiswa, pekerja, dan warga yang ingin menikmati kopi enak tanpa harus masuk ke kafe mahal.</p>
+        <div class="features">
+          <div class="feature-item">
+            <span class="icon">☕</span>
+            <span>Biji Robusta Kerinci</span>
+          </div>
+          <div class="feature-item">
+            <span class="icon">💰</span>
+            <span>Harga Rp10–12rb</span>
+          </div>
+          <div class="feature-item">
+            <span class="icon">⚡</span>
+            <span>Pelayanan Cepat</span>
+          </div>
+          <div class="feature-item">
+            <span class="icon">🚗</span>
+            <span>Takeaway Only</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="menu" id="menu">
+    <div class="section-title">
+      <h2>Menu Favorit</h2>
+      <div class="divider"></div>
+      <p>Dari kopi klasik sampai non-coffee kekinian</p>
+    </div>
+    <div class="menu-grid">
+      <!-- Item 1 -->
+      <div class="menu-card">
+        <div class="menu-card-header">
+          <h3>Kopi Susu Gula Aren</h3>
+          <div class="price">Rp 12.000</div>
+        </div>
+        <div class="menu-card-body">
+          <p>Perpaduan espresso robusta dengan susu dan manis alami gula aren. Menu paling laris!</p>
+          <span class="tag bestseller">Best Seller</span>
+        </div>
+      </div>
+      <!-- Item 2 -->
+      <div class="menu-card">
+        <div class="menu-card-header">
+          <h3>Americano</h3>
+          <div class="price">Rp 10–12.000</div>
+        </div>
+        <div class="menu-card-body">
+          <p>Espresso yang diencerkan dengan air, rasa kopi yang bersih dan kuat. Cocok untuk pecinta pure coffee.</p>
+          <span class="tag">Coffee</span>
+        </div>
+      </div>
+      <!-- Item 3 -->
+      <div class="menu-card">
+        <div class="menu-card-header">
+          <h3>Double Shot</h3>
+          <div class="price">Rp 12.000</div>
+        </div>
+        <div class="menu-card-body">
+          <p>Espresso ganda yang lebih pekat dan powerful. Buat yang butuh boost ekstra.</p>
+          <span class="tag">Strong</span>
+        </div>
+      </div>
+      <!-- Item 4 -->
+      <div class="menu-card">
+        <div class="menu-card-header noncoffee">
+          <h3>Matcha Latte</h3>
+          <div class="price">Rp 12.000</div>
+        </div>
+        <div class="menu-card-body">
+          <p>Matcha creamy yang rasanya di atas rata-rata. Banyak yang bilang lebih enak dari brand mahal.</p>
+          <span class="tag">Non-Coffee</span>
+        </div>
+      </div>
+      <!-- Item 5 -->
+      <div class="menu-card">
+        <div class="menu-card-header noncoffee">
+          <h3>Butterscotch</h3>
+          <div class="price">Rp 12.000</div>
+        </div>
+        <div class="menu-card-body">
+          <p>Minuman non-kopi lembut dengan rasa butterscotch yang manis dan creamy.</p>
+          <span class="tag">Non-Coffee</span>
+        </div>
+      </div>
+      <!-- Item 6 -->
+      <div class="menu-card">
+        <div class="menu-card-header noncoffee">
+          <h3>Royal Choco</h3>
+          <div class="price">Rp 12.000</div>
+        </div>
+        <div class="menu-card-body">
+          <p>Varian terbaru dengan rasa cokelat premium yang kaya. Bisa ditambah topping Macchiato Crumble +Rp3.000.</p>
+          <span class="tag">New!</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATIONS -->
+  <section class="locations" id="lokasi">
+    <div class="section-title">
+      <h2>Lokasi Gerobak</h2>
+      <div class="divider"></div>
+      <p>Temukan Kopiers di berbagai titik strategis Pekanbaru</p>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-card">
+        <h4>📍 Jl. Tuanku Tambusai</h4>
+        <p>Samping Universitas Muhammadiyah Riau (UMRI)</p>
+      </div>
+      <div class="loc-card">
+        <h4>📍 Jl. Paus</h4>
+        <p>Depan Paus Interior, Tangkerang Tengah, Marpoyan Damai</p>
+      </div>
+      <div class="loc-card">
+        <h4>📍 Jl. Arifin Ahmad</h4>
+        <p>Seberang SPBU Arifin Ahmad</p>
+      </div>
+      <div class="loc-card">
+        <h4>📍 Jl. Riau</h4>
+        <p>Depan Bank BCA</p>
+      </div>
+      <div class="loc-card">
+        <h4>📍 Jl. Hangtuah</h4>
+        <p>Depan WW Ponsel</p>
+      </div>
+      <div class="loc-card">
+        <h4>📍 Jl. Sembilang, Rumbai</h4>
+        <p>Depan Masjid Istiqomah</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO -->
+  <section class="info-section" id="info">
+    <div class="section-title" style="margin-bottom: 2.5rem;">
+      <h2 style="color: var(--cream);">Informasi Praktis</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="icon">🕐</div>
+        <h4>Jam Operasional</h4>
+        <p>Setiap hari<br>09.00 – 18.00 WIB</p>
+      </div>
+      <div class="info-item">
+        <div class="icon">📱</div>
+        <h4>Kontak</h4>
+        <p>+62 812-6448-8868<br>WhatsApp tersedia</p>
+      </div>
+      <div class="info-item">
+        <div class="icon">💳</div>
+        <h4>Pembayaran</h4>
+        <p>Cash & Cashless<br>(QRIS diterima)</p>
+      </div>
+      <div class="info-item">
+        <div class="icon">📦</div>
+        <h4>Layanan</h4>
+        <p>Takeaway only<br>Bisa order untuk acara</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Yuk, Coba Kopiers Hari Ini!</h2>
+    <p>Nikmati kopi berkualitas dengan harga yang bikin senyum. Cari gerobak terdekat dan rasakan sendiri bedanya.</p>
+    <a href="https://wa.me/6281264488868" class="btn btn-primary" target="_blank" rel="noopener">Chat via WhatsApp</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025–2026 Kopiers Pekanbaru. Semua hak dilindungi.</p>
+    <p style="margin-top: 0.5rem; opacity: 0.8;">Dibuat dengan ☕ untuk pecinta kopi Pekanbaru</p>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
