@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eR Coffee Pekanbaru</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f2e8;
+            color: #38251b;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #3b2418;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        header h2 {
+            color: #e9b66b;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #e9b66b;
+        }
+
+        .hero {
+            min-height: 390px;
+            padding: 80px 8%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(120deg, #3b2418, #855632);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 550px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #e9b66b;
+            color: #38251b;
+            padding: 12px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            width: fit-content;
+        }
+
+        section {
+            padding: 55px 8%;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #704329;
+        }
+
+        .about {
+            text-align: center;
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .menu-list {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .menu-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px #00000012;
+        }
+
+        .menu-card .emoji {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .menu-card h3 {
+            margin-bottom: 8px;
+            color: #704329;
+        }
+
+        .menu-card p {
+            font-size: 14px;
+        }
+
+        .location {
+            text-align: center;
+            background: #ead9c2;
+        }
+
+        .location p {
+            margin-bottom: 18px;
+        }
+
+        footer {
+            text-align: center;
+            background: #3b2418;
+            color: white;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+            }
+
+            nav {
+                text-align: center;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h2>☕ eR Coffee</h2>
+
+        <nav>
+            <a href="#beranda">Beranda</a>
+            <a href="#tentang">Tentang</a>
+            <a href="#menu">Menu</a>
+            <a href="#lokasi">Lokasi</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="beranda">
+        <h1>Selamat Datang di eR Coffee</h1>
+
+        <p>
+            Nikmati suasana santai bersama kopi dan makanan
+            favoritmu di eR Coffee Pekanbaru.
+        </p>
+
+        <a href="#menu" class="btn">Lihat Menu</a>
+    </section>
+
+    <section id="tentang">
+        <h2>Tentang eR Coffee</h2>
+
+        <div class="about">
+            <p>
+                eR Coffee merupakan kedai kopi di Pekanbaru yang
+                dapat menjadi pilihan untuk menikmati kopi,
+                bersantai, dan berkumpul bersama teman maupun keluarga.
+                Selain minuman kopi, pengunjung juga dapat menikmati
+                pilihan makanan.
+            </p>
+        </div>
+    </section>
+
+    <section id="menu">
+        <h2>Menu Pilihan</h2>
+
+        <div class="menu-list">
+            <div class="menu-card">
+                <div class="emoji">☕</div>
+                <h3>Kopi Hitam</h3>
+                <p>
+                    Pilihan untuk pencinta kopi dengan cita rasa
+                    kopi yang khas.
+                </p>
+            </div>
+
+            <div class="menu-card">
+                <div class="emoji">🥛</div>
+                <h3>Kopi Susu</h3>
+                <p>
+                    Perpaduan kopi dan susu untuk menemani
+                    waktu santai.
+                </p>
+            </div>
+
+            <div class="menu-card">
+                <div class="emoji">🧊</div>
+                <h3>Kopi Dingin</h3>
+                <p>
+                    Pilihan minuman kopi dingin yang menyegarkan.
+                </p>
+            </div>
+
+            <div class="menu-card">
+                <div class="emoji">🍜</div>
+                <h3>Mie Aceh</h3>
+                <p>
+                    Pilihan makanan untuk menemani waktu
+                    menikmati kopi.
+                </p>
+            </div>
+
+            <div class="menu-card">
+                <div class="emoji">🍛</div>
+                <h3>Nasi Goreng</h3>
+                <p>
+                    Menu makanan yang cocok dinikmati
+                    bersama minuman favorit.
+                </p>
+            </div>
+
+            <div class="menu-card">
+                <div class="emoji">🍹</div>
+                <h3>Minuman Lainnya</h3>
+                <p>
+                    Tersedia pilihan minuman lain sesuai
+                    dengan menu kedai.
+                </p>
+            </div>
+        </div>
+
+        <p style="text-align:center; margin-top:20px;">
+            Catatan: Menu pada website ini merupakan contoh.
+            Silakan sesuaikan dengan menu resmi kedai.
+        </p>
+    </section>
+
+    <section class="location" id="lokasi">
+        <h2>Lokasi Kami</h2>
+
+        <p>
+            Jl. Arifin Ahmad No. 45, Pekanbaru, Riau.
+        </p>
+
+        <a
+            class="btn"
+            href="https://www.google.com/maps/search/?api=1&query=eR+Coffee+Pekanbaru"
+            target="_blank"
+            rel="noopener noreferrer">
+            Lihat di Google Maps
+        </a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 eR Coffee Pekanbaru</p>
+        <p>Website promosi UMKM berbasis HTML dan CSS.</p>
+    </footer>
+
+</body>
+</html>
